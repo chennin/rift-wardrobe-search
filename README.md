@@ -23,22 +23,24 @@ http://rift.events/appearances/
 
 ### Icons
 
-0. Install ImageMagick, optipng, and perl rename: `apt-get install imagemagick optipng perl`
-1. Download and unzip the item icons from `http://webcdn.triongames.com/addons/assets/rift_item_icons.zip` and cd in to `item_icons`
-2. Convert the icons to png, reduce their size, and lowercase the name because the icons are lowercased in `Items.xml`:
+1. Install ImageMagick, optipng, and perl rename: `apt-get install imagemagick optipng perl`
+2. Download and unzip the item icons from `http://webcdn.triongames.com/addons/assets/rift_item_icons.zip` and cd in to `item_icons`
+3. Convert the icons to png, reduce their size, and lowercase the name because the icons are lowercased in `Items.xml`:
 
-    for file in *.dds; do 
+```
+    for file in *.dds; do
        output=$(basename "$file" .dds).png;
        convert "$file" "$output"; 
        optipng -quiet "$output"; 
        prename 'y/A-Z/a-z/' "$output";
        rm "$file";
     done
+```
 
 ## Running
 Serve index.py via WSGI. The specifics and the (optional) HTTPd setup is beyond the scope of this README, but I am successfully using NGINX to proxy to [uwsgi](https://uwsgi-docs.readthedocs.io/en/latest/Python.html). A uwsgi config file is included (`appear.ini`).
                                                                                           
-### Disclaimer
+## Disclaimer
 
 Trion, Trion Worlds, RIFT, Storm Legion, Nightmare Tide, Prophecy of Ahnket, Telara, and their respective logos, are trademarks or registered trademarks of Trion Worlds, Inc. in the U.S. and other countries. This project is not affiliated with Trion Worlds or any of its affiliates.
 
