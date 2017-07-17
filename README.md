@@ -19,7 +19,7 @@ http://rift.events/appearances/
 ## Install
 
 1. Clone the source code via git
-2. Copy `config.txt.dist` to `config.txt` and customize the values as you like
+2. Copy `config.ini.dist` to `config.ini` and customize the values as you like
 
 ### Icons
 
@@ -36,6 +36,8 @@ http://rift.events/appearances/
        rm "$file";
     done
 ```
+
+### Inserting Data
 
 ## Running
 Serve index.py via WSGI. The specifics and the (optional) HTTPd setup is beyond the scope of this README, but I am successfully using NGINX to proxy to [uwsgi](https://uwsgi-docs.readthedocs.io/en/latest/Python.html). A uwsgi config file is included (`appear.ini`).
