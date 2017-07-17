@@ -24,7 +24,7 @@ http://rift.events/appearances/
 ### Icons
 
 1. Install ImageMagick, optipng, and perl rename: `apt-get install imagemagick optipng perl`
-2. Download and unzip the item icons from `http://webcdn.triongames.com/addons/assets/rift_item_icons.zip` and cd in to `item_icons`
+2. Download and unzip the item icons from `http://webcdn.triongames.com/addons/assets/rift_item_icons.zip` and cd in to `item_icons`. This folder should end up at the same level as `index.py`.
 3. Convert the icons to png, reduce their size, and lowercase the name because the icons are lowercased in `Items.xml`:
 
 ```
