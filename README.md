@@ -39,6 +39,8 @@ http://rift.events/appearances/
 
 ### Inserting Data
 
+Get Items.xml from the latest `Rift_Discoveries_*.zip` from the Trion public assets folder, and the mapping of items to appearances from the above forum thread (named `rift-wardrobe-appearances-for-items-from-discoveries-2017-6-27.txt` or similar).
+
 ## Running
 Serve index.py via WSGI. The specifics and the (optional) HTTPd setup is beyond the scope of this README, but I am successfully using NGINX to proxy to [uwsgi](https://uwsgi-docs.readthedocs.io/en/latest/Python.html). A uwsgi config file is included (`appear.ini`).
                                                                                           

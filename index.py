@@ -26,6 +26,8 @@ import sys
 import re, string
 from urllib.parse import parse_qsl
 
+UPDATED = "2017-07-18"
+
 # Read config file in
 mydir = os.path.dirname(os.path.realpath(__file__))
 configReader = configparser.RawConfigParser()
@@ -124,6 +126,8 @@ def application(environ, start_response):
              text(" and information generously released by ")
              line('a', "Emilynicole@Deepwood", href = "http://forums.riftgame.com/technical-discussions/addons-macros-ui/496667-wardrobe-appearances-list-completed.html#post5313180")
              text(".")
+          with tag('p'):
+             line('em', UPDATED)
           with tag('form', ('id', "appform")):
              line('label', "Appearance name: ", ('for', "appearance"))
              doc.stag('input', ('type', "text"), ('name', "appearance"), ('id', "appearance"), ('size', "24"), ('maxlength', "255"), ('value', search['appearance'] if search['appearance'] != "" else ""))
@@ -133,7 +137,7 @@ def application(environ, start_response):
             line('strong', "wardrobe appearance to search for")
             text(" - in English - then press ")
             line('strong', "Submit")
-            text(". You can see the what you are missing by going to the Wardrobe tab of your character sheet in-game and checking the Show Uncollected box.")
+            text(". You can see the ones you are missing by going to the Wardrobe tab of your character sheet in-game and checking the Show Uncollected box.")
           # If we had an earlier error, print the generic message here
           if error:
              line('p', error)
