@@ -39,7 +39,28 @@ http://rift.events/appearances/
 
 ### Inserting Data
 
-Get Items.xml from the latest `Rift_Discoveries_*.zip` from the Trion public assets folder, and the mapping of items to appearances from the above forum thread (named `rift-wardrobe-appearances-for-items-from-discoveries-2017-6-27.txt` or similar).
+1. Get Items.xml from the latest `Rift_Discoveries_*.zip` from the Trion public assets folder, and the mapping of items to appearances from the above forum thread (named `rift-wardrobe-appearances-for-items-from-discoveries-2017-7-20.txt` or similar) and place them in the same folder as parse.py.
+2. Create a MySQL database and user.
+
+#### Table Creation
+
+```
+CREATE TABLE `items` (
+  `ItemKey` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
+  `AddonType` varchar(96) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Icon` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Slot` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
+  `Type` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Name/English` varchar(96) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Appearance` varchar(96) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`ItemKey`),
+  KEY `name` (`Name/English`),
+  KEY `app` (`Appearance`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+```
+
+Run `python3 ./parse.py` .
+
 
 ## Running
 Serve index.py via WSGI. The specifics and the (optional) HTTPd setup is beyond the scope of this README, but I am successfully using NGINX to proxy to [uwsgi](https://uwsgi-docs.readthedocs.io/en/latest/Python.html). A uwsgi config file is included (`appear.ini`).
