@@ -41,8 +41,7 @@ http://rift.events/appearances/
 
 1. Get Items.xml from the latest `Rift_Discoveries_*.zip` from the Trion public assets folder, and the mapping of items to appearances from the above forum thread (named `rift-wardrobe-appearances-for-items-from-discoveries-2017-7-20.txt` or similar) and place them in the same folder as parse.py.
 2. Create a MySQL database and user.
-
-#### Table Creation
+3. Create a table:
 
 ```
 CREATE TABLE `items` (
@@ -59,7 +58,7 @@ CREATE TABLE `items` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 ```
 
-Run `python3 ./parse.py` .
+4. Run `python3 ./parse.py` .
 
 
 ## Running
