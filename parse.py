@@ -62,7 +62,7 @@ with conn.cursor() as cursor:
   context = etree.iterparse("{0}s.xml".format(namekeys['kind']), events=('end',))
   toadd = []
   # Do nothing if item already exists
-  sql = "INSERT INTO items (`ItemKey`, `AddonType`, `Icon`, `Slot`, `Type`, `Name/English`) VALUES (%s, %s, %s, %s, %s, %s) ON DUPLICATE KEY UPDATE ItemKey=ItemKey";
+  sql = "INSERT INTO items (`ItemKey`, `AddonType`, `Icon`, `Slot`, `Type`, `Name/English`) VALUES (%s, %s, %s, %s, %s, %s) ON DUPLICATE KEY UPDATE ItemKey=VALUES(ItemKey), `Name/English`=VALUES(`Name/English`)";
 
   for event, elem in context:
     # <Item>, <Quest>, etc
