@@ -110,7 +110,8 @@ def application(environ, start_response):
           doc.stag('link', ('rel', "stylesheet"), ('type', "text/css"), ('href', "style.css"))
           doc.stag('link', ('rel', "stylesheet"), ('type', "text/css"), ('href', "https://www.magelocdn.com/pack/magelo-bar-css2.css"))
           # Script tags cannot be self-closing, thus this construct with the 'pass'
-          with tag('script', ('src', "https://www.magelocdn.com/pack/rift/en/magelo-bar.js#1"), ('type', "text/javascript")):                                              pass  
+          with tag('script', ('src', "https://www.magelocdn.com/pack/rift/en/magelo-bar.js#1"), ('type', "text/javascript")):
+             pass
           with tag('title'):
              text("RIFT Wardrobe Appearance Search")
        with tag('body'):
