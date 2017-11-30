@@ -30,11 +30,11 @@ http://rift.events/appearances/
 ```
     for file in *.dds; do
        output=$(echo $(basename "$file" .dds).png | tr "[:upper:]" "[:lower:]");
-       [ -f "$output" ] && next;
+       [ -f "$output" ] && continue;
        convert "$file" "$output"; 
        optipng -quiet "$output"; 
-       rm "$file";
-    done
+    done;
+    rm -f *.dds;
 ```
 
 ### Inserting Data
