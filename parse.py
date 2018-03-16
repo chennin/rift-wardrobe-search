@@ -115,7 +115,7 @@ with conn.cursor() as cursor:
 # Insert appearances - TSV file
 with conn.cursor() as cursor:
   toadd = []
-  with open("rift-wardrobe-appearances-for-items-from-discoveries-2017-12-12.txt") as tsv:
+  with open("rift-wardrobe-appearances-for-items-from-discoveries-2018-02-13.txt") as tsv:
     sql = "UPDATE items SET `Appearance`=%s WHERE `ItemKey`=%s";
     for line in csv.reader(tsv, dialect="excel-tab"):
       key = line[1]

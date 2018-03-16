@@ -26,7 +26,7 @@ import sys
 import re, string
 from urllib.parse import parse_qsl
 
-UPDATED = "2017-12-12"
+UPDATED = "2018-02-13"
 
 # Read config file in
 mydir = os.path.dirname(os.path.realpath(__file__))

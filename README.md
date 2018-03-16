@@ -28,7 +28,7 @@ http://rift.events/appearances/
 3. Convert the icons to png, reduce their size, and lowercase the name because the icons are lowercased in `Items.xml`:
 
 ```
-    for file in *.dds; do
+    ls *.dds | while read file; do
        output=$(echo $(basename "$file" .dds).png | tr "[:upper:]" "[:lower:]");
        [ -f "$output" ] && continue;
        convert "$file" "$output"; 
